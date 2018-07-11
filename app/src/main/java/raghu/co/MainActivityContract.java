@@ -3,6 +3,7 @@ package raghu.co;
 
 interface MainActivityContract {
     interface View {
+
         void showSpinner();
 
         void hideSpinner();
@@ -14,6 +15,5 @@ interface MainActivityContract {
 
         void stop();
 
-        void loadFirstPage();
     }
 }

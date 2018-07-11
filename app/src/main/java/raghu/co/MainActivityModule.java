@@ -23,4 +23,11 @@ class MainActivityModule {
     CompositeDisposable providesDisposable() {
         return new CompositeDisposable();
     }
+
+    @PerActivity
+    @Provides
+    String provideAmadeusKey() {
+        return ((MainActivity) view).getResources().getString(R.string.api_key);
+    }
+
 }
