@@ -20,9 +20,11 @@
             </intent-filter>
         </activity>
 
-        <!--<meta-data-->
-            <!--android:name="com.google.android.geo.API_KEY"-->
-            <!--android:value="AIzaSyD8_2dMoOtMNmVgWpC0svt2qA1Gxx6Guvo"/>-->
+        <activity
+            android:name=".carlist.CarListActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/BaseAppTheme" />
     </application>
 
 </manifest>

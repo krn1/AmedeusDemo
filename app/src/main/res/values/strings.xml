@@ -9,4 +9,5 @@
     <string name="location_hint">Where are you?</string>
     <string name="pickup_date">Pickup date</string>
     <string name="dropoff_date">Dropoff date</string>
+    <string name="list_toolbar">From your Location</string>
 </resources>

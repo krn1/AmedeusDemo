@@ -1,7 +1,7 @@
 package raghu.co.repository.network;
 
 import io.reactivex.Flowable;
-import raghu.co.repository.model.cars.RentalCars;
+import raghu.co.repository.model.RentalCars;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 

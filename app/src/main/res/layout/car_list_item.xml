@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:background="@drawable/background_line_grey">
+
+    <TextView
+        android:id="@+id/car"
+        style="@style/List.Item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/main_margin"
+        android:layout_marginTop="@dimen/default_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/provider"
+        style="@style/List.Item.normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/main_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/car"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/distance"
+        style="@style/List.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:layout_marginStart="@dimen/main_margin"
+        android:layout_marginTop="@dimen/default_padding"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/provider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/price"
+        style="@style/List.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:layout_marginEnd="@dimen/main_margin"
+        app:layout_constraintBaseline_toBaselineOf="@id/distance"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="1" />
+
+</android.support.constraint.ConstraintLayout>

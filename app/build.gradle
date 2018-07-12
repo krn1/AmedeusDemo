@@ -22,6 +22,16 @@ android {
     }
 }
 
+project.android.buildTypes.all { buildType ->
+    buildType.javaCompileOptions.annotationProcessorOptions.arguments =
+            [
+                    validateEpoxyModelUsage     : String.valueOf(buildType.name == 'debug'),
+                    requireHashCodeInEpoxyModels: "true",
+                    requireAbstractEpoxyModels  : "true",
+                    implicitlyAddAutoModels     : "true"
+            ]
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 

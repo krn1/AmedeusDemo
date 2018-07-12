@@ -16,6 +16,7 @@ import com.seatgeek.placesautocomplete.PlacesAutocompleteTextView;
 import com.seatgeek.placesautocomplete.model.Place;
 import com.seatgeek.placesautocomplete.model.PlaceDetails;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.inject.Inject;
@@ -23,6 +24,9 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import raghu.co.app.RentalApp;
+import raghu.co.carlist.CarListActivity;
+import raghu.co.repository.model.Car;
+import raghu.co.repository.model.Location;
 import raghu.co.util.AlertUtil;
 import raghu.co.util.KeyBoardUtil;
 import timber.log.Timber;
@@ -48,9 +52,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     @BindView(R.id.progress_bar_container)
     FrameLayout progressBarContainer;
 
-    private double longitude = -118.243685f;
-    private double latitude = 34.052234f;
     private boolean isPickUpDate = true;
+    private Location userLocation = new Location(-118.243685f, 34.052234f);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +66,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         enableSearch(false);
         searchBtn.setOnClickListener(listener -> {
             if (validateInput()) {
-                presenter.getRentalCarList(pickUpBtn.getText().toString(),
+                presenter.getRentalCarList(userLocation,
+                        pickUpBtn.getText().toString(),
                         dropOffBtn.getText().toString());
             }
         });
@@ -88,7 +92,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         String date = year + "-" + (month + 1) + "-" + dayOfMonth;
-        Timber.e("Selected date " + date);
         if (isPickUpDate) {
             pickUpBtn.setText(date);
         } else {
@@ -111,18 +114,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     }
 
     @Override
-    public double getLatitude() {
-        return latitude;
-    }
-
-    @Override
-    public double getLongitude() {
-        return longitude;
-    }
-
-    @Override
     public void showError(String msg) {
         AlertUtil.displayError(this, msg);
+    }
+
+    @Override
+    public void showCarsList(ArrayList<Car> carList) {
+        CarListActivity.start(this, carList, userLocation);
     }
 
     // region private
@@ -148,11 +146,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         locationTextView.getDetailsFor(place, new DetailsCallback() {
             @Override
             public void onSuccess(PlaceDetails details) {
-                latitude = details.geometry.location.lat;
-                longitude = details.geometry.location.lng;
+                userLocation.setLatitude((float) details.geometry.location.lat);
+                userLocation.setLongitude((float) details.geometry.location.lng);
 
                 validateInput();
-                Timber.e("Long %f \t lat %f", longitude, latitude);
             }
 
             @Override

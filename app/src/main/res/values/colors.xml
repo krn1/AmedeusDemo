@@ -11,5 +11,6 @@
     <color name="grey">#dddddd</color>
     <color name="medium_dark_grey">#bdbdbd</color>
     <color name="light_grey_transparent">#aaeeeeee</color>
+    <color name="black">#222222</color>
 
 </resources>
