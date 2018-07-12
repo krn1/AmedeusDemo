@@ -6,13 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.seatgeek.placesautocomplete.PlacesAutocompleteTextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_margin="@dimen/main_margin"
+        android:drawablePadding="@dimen/default_padding"
+        android:hint="@string/location_hint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        app:pacv_clearEnabled="true"
+        app:pacv_googleMapsApiKey="@string/google_maps_api_key"
+        app:pacv_languageCode="en"
+        app:pacv_resultType="no_type" />
+
+    <Button
+        android:id="@+id/pickup_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/main_margin"
+        android:layout_marginTop="@dimen/edit_main_margin"
+        android:drawablePadding="@dimen/default_padding"
+        android:drawableStart="@drawable/ic_date"
+        android:hint="@string/pickup_date"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location" />
+
+    <Button
+        android:id="@+id/dropoff_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/default_padding"
+        android:drawableStart="@drawable/ic_date"
+        android:hint="@string/dropoff_date"
+        app:layout_constraintBaseline_toBaselineOf="@+id/pickup_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintStart_toEndOf="@id/pickup_date" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/main_margin"
+        android:layout_marginTop="@dimen/search_main_margin"
+        android:elevation="@dimen/default_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pickup_date"
+        app:srcCompat="@drawable/ic_search" />
+
+    <include layout="@layout/include_progress_container" />
 
 </android.support.constraint.ConstraintLayout>

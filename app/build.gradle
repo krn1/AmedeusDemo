@@ -25,6 +25,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    // maps
+    implementation 'com.google.android.gms:play-services-places:15.0.1'
+    implementation 'com.seatgeek:placesautocomplete:0.3-SNAPSHOT'
     // material design framework
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'

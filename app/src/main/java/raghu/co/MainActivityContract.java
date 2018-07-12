@@ -7,13 +7,18 @@ interface MainActivityContract {
         void showSpinner();
 
         void hideSpinner();
+
+        double getLatitude();
+
+        double getLongitude();
+
+        void showError(String msg);
     }
 
     interface Presenter {
 
-        void start();
-
         void stop();
 
+        void getRentalCarList(String pickUpDate,String dropOffDate);
     }
 }

@@ -3,4 +3,10 @@
 
     <!--Amadeus Api Key-->
     <string name="api_key">vdTiALT8w4eZS0AF6yqLisSnv80k4F7E</string>
+    <string name="google_maps_api_key">AIzaSyDIoyl48T6r8uVOLSmKJHoCAYVKe7ydaU8</string>
+    <string name="generic_network_error">There was a problem. Please check your network and try again.</string>
+
+    <string name="location_hint">Where are you?</string>
+    <string name="pickup_date">Pickup date</string>
+    <string name="dropoff_date">Dropoff date</string>
 </resources>
