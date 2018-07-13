@@ -57,12 +57,11 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
-        <item name="android:layout_marginBottom">3dp</item>
     </style>
 
-    <style name="List.Text" parent="TextAppearance.AppCompat.Body1">
+    <style name="List.Text" parent="Location.Text">
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
         <item name="android:textStyle">bold</item>
     </style>
 

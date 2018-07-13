@@ -52,7 +52,7 @@
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/edit_main_margin"
+            android:layout_marginBottom="@dimen/default_margin"
             android:layout_marginStart="@dimen/main_margin"
             android:layout_marginTop="@dimen/default_padding"
             android:textSize="17.5sp"
@@ -75,7 +75,7 @@
         <TextView
             android:id="@+id/provider"
             style="@style/List.Item.normal"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/main_margin"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
         <TextView
             android:id="@+id/distance"
             style="@style/List.Text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/default_padding"
             android:layout_marginStart="@dimen/main_margin"
@@ -101,12 +101,46 @@
             style="@style/List.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_padding"
             android:layout_marginEnd="@dimen/main_margin"
             app:layout_constraintBaseline_toBaselineOf="@id/distance"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="1" />
 
+        <TextView
+            android:id="@+id/fuel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginTop="@dimen/main_margin"
+            android:drawablePadding="@dimen/default_padding"
+            android:drawableStart="@drawable/ic_fuel"
+            android:hint="@string/pickup_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/distance" />
+
+        <TextView
+            android:id="@+id/transmission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:drawablePadding="@dimen/default_padding"
+            android:drawableStart="@drawable/ic_transmission"
+            android:hint="@string/pickup_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fuel" />
+
+        <TextView
+            android:id="@+id/ac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:drawablePadding="@dimen/default_padding"
+            android:drawableStart="@drawable/ic_ac"
+            android:hint="@string/dropoff_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/transmission" />
 
     </android.support.constraint.ConstraintLayout>
 

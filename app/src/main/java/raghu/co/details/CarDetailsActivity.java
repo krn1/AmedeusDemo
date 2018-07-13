@@ -51,9 +51,17 @@ public class CarDetailsActivity extends AppCompatActivity {
     @BindView(R.id.price)
     TextView priceView;
 
+    @BindView(R.id.fuel)
+    TextView fuelView;
+
+    @BindView(R.id.transmission)
+    TextView transmissionView;
+
+    @BindView(R.id.ac)
+    TextView acView;
+
     @BindView(R.id.fab)
     FloatingActionButton directionsFab;
-
 
     private Car car;
     private GoogleMap map;
@@ -127,7 +135,9 @@ public class CarDetailsActivity extends AppCompatActivity {
         providerTextView.setText(car.getCompanyName());
         distanceView.setText(car.getDistance());
         priceView.setText(car.getRates().get(0).getPrice().getAmount());
-
+        fuelView.setText(car.getVehicleInfo().getFuel());
+        transmissionView.setText(car.getVehicleInfo().getTransmission());
+        acView.setText(car.getVehicleInfo().getAirConditioning());
     }
 
     private void updateMapContents(Location carLocation) {

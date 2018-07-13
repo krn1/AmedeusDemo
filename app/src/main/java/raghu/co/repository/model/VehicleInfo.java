@@ -111,6 +111,13 @@ public class VehicleInfo implements Parcelable
         return this;
     }
 
+    public String getAirConditioning() {
+        if(airConditioning) {
+            return "Has Air Conditioning" ;
+        }
+        return "None ";
+    }
+
     public String getCategory() {
         return category;
     }
