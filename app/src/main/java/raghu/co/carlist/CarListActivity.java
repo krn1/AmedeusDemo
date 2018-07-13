@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.airbnb.epoxy.EpoxyRecyclerView;
@@ -69,15 +70,26 @@ public class CarListActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_car_list, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 onBackPressed();
                 return true;
+
+            case R.id.overflow:
+                sortList();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
     //endregion override
 
     // region private
@@ -100,12 +112,15 @@ public class CarListActivity extends AppCompatActivity {
     }
 
     private void showCarList() {
-        Timber.e("Total cars available : " + carList.size());
-
         listController = new CarListController();
         list.setController(listController);
         listController.setHeader(getCarAvailability());
         listController.setContents(carList);
+    }
+
+    private void sortList() {
+        Timber.e("We will sor list ");
+
     }
     // endregion
 }

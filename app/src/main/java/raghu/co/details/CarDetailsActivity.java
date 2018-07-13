@@ -24,7 +24,6 @@ import raghu.co.R;
 import raghu.co.repository.model.Car;
 import raghu.co.repository.model.Location;
 import raghu.co.util.DistanceUtil;
-import timber.log.Timber;
 
 public class CarDetailsActivity extends AppCompatActivity {
 
@@ -128,8 +127,6 @@ public class CarDetailsActivity extends AppCompatActivity {
     }
 
     private void showCarInfo() {
-        Timber.e("Car : " + car.toString());
-
         addressView.setText(car.getReadableAddress());
         carTextView.setText(car.getCarType());
         providerTextView.setText(car.getCompanyName());
