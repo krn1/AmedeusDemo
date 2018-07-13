@@ -37,7 +37,7 @@ public class Car implements Parcelable {
     }
 
     public Car(VehicleInfo vehicleInfo, List<Rate> rates, EstimatedTotal estimatedTotal, Image image, String companyName, Location
-            location,Location userLocation, Address address, String airport, float distance,int id) {
+            location, Location userLocation, Address address, String airport, float distance, int id) {
         this.vehicleInfo = vehicleInfo;
         this.rates = rates;
         this.estimatedTotal = estimatedTotal;
@@ -62,7 +62,7 @@ public class Car implements Parcelable {
         address = in.readParcelable(Address.class.getClassLoader());
         airport = in.readString();
         distance = in.readFloat();
-        id= in.readInt();
+        id = in.readInt();
     }
 
     public static final Creator<Car> CREATOR = new Creator<Car>() {
@@ -157,7 +157,6 @@ public class Car implements Parcelable {
         this.airport = airport;
     }
 
-
     public String getDistance() {
         DecimalFormat decimalFormat = new DecimalFormat();
         decimalFormat.setMaximumFractionDigits(2);
@@ -170,6 +169,21 @@ public class Car implements Parcelable {
         distance = (float) DistanceUtil.distance(userLatitude, userLongitude,
                 location.getLatitude(), location.getLongitude());
     }
+
+    public String getCarType() {
+        return getVehicleInfo().getAcrissCode() + " " +
+                getVehicleInfo().getCategory() + " " +
+                getVehicleInfo().getType();
+    }
+
+    public String getReadableAddress() {
+        return address.getLine1() + " " +
+                address.getCity() + "," +
+                address.getRegion() + " " +
+                address.getCountry()+"-" +
+                address.getPostalCode();
+    }
+
 
     @Override
     public int describeContents() {

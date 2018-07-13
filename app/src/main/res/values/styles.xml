@@ -16,6 +16,12 @@
         <item name="colorControlNormal">@android:color/white</item>
     </style>
 
+    <style name="BaseAppTheme.NoActionBar" parent="BaseAppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
     <style name="ProgressBar" parent="Widget.AppCompat.ProgressBar">
         <item name="android:indeterminate">true</item>
         <item name="android:layout_marginBottom">10dp</item>

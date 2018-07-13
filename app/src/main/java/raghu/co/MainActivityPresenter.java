@@ -20,7 +20,7 @@ import timber.log.Timber;
 @PerActivity
 class MainActivityPresenter implements MainActivityContract.Presenter {
 
-    private static int DISTANCE_RADIUS = 35;
+    private static int DISTANCE_RADIUS = 50;
 
     private MainActivityContract.View view;
     private CompositeDisposable disposable;

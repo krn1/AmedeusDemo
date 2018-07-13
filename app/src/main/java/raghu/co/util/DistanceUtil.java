@@ -1,5 +1,9 @@
 package raghu.co.util;
 
+import android.net.Uri;
+
+import raghu.co.repository.model.Location;
+
 public class DistanceUtil {
     /**
      * Source : https://www.geodatasource.com/developers/java
@@ -33,5 +37,11 @@ public class DistanceUtil {
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     private static double rad2deg(double rad) {
         return (rad * 180 / Math.PI);
+    }
+
+    public static Uri getMapUrl(Location start,Location destination) {
+        String uri = "http://maps.google.com/maps?saddr=" + start.getLatitude() + "," + start.getLongitude()
+                +"&daddr=" + destination.getLatitude() + "," + destination.getLongitude();
+        return Uri.parse(uri);
     }
 }

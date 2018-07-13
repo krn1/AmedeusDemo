@@ -25,6 +25,16 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/BaseAppTheme" />
+
+        <activity
+            android:name=".details.CarDetailsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/BaseAppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBNQhHLSAyDmAJodhChDY_s6THgkG_eSbA" />
     </application>
 
 </manifest>
