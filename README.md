@@ -15,6 +15,7 @@ Car Rental App using Amedeus Api . Can Run on any device OS >= 21
 * The code is organized package by feature format
 * RxJava2 is used for network calls response along with Retrofit2 network framework
 * Tried to use Fair App Style guide 
+* Test Cases are inside the test folder 
 
 ## Youtube demo link : 
 https://youtu.be/w-zAW3k7rQk
