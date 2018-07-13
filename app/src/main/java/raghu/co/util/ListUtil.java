@@ -29,10 +29,10 @@ public class ListUtil {
     public static List<Car> sortCarsByPriceDescending(List<Car> carList) {
         if (carList != null && !carList.isEmpty()) {
             Collections.sort(carList, (car1, car2) -> {
-                int inter1 = Integer.parseInt(car1.getEstimatedTotal().getAmount());
-                int inter2 =  Integer.parseInt(car2.getEstimatedTotal().getAmount());
+                float inter1 = Float.valueOf(car1.getEstimatedTotal().getAmount());
+                float inter2 = Float.valueOf(car2.getEstimatedTotal().getAmount());
 
-                return inter2 - inter1;
+                return (int) (inter2 - inter1);
             });
         }
         return carList;
@@ -49,10 +49,10 @@ public class ListUtil {
     public static List<Car> sortCarsByPriceAscending(List<Car> carList) {
         if (carList != null && !carList.isEmpty()) {
             Collections.sort(carList, (car1, car2) -> {
-                int inter1 = Integer.parseInt(car1.getEstimatedTotal().getAmount());
-                int inter2 =  Integer.parseInt(car2.getEstimatedTotal().getAmount());
+                float inter1 = Float.valueOf(car1.getEstimatedTotal().getAmount());
+                float inter2 = Float.valueOf(car2.getEstimatedTotal().getAmount());
 
-                return inter1 - inter2;
+                return (int) (inter1 - inter2);
             });
         }
         return carList;

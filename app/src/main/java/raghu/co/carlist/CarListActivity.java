@@ -8,6 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.airbnb.epoxy.EpoxyRecyclerView;
 
@@ -20,7 +24,6 @@ import raghu.co.R;
 import raghu.co.repository.model.Car;
 import raghu.co.repository.model.Location;
 import raghu.co.util.ListUtil;
-import timber.log.Timber;
 
 public class CarListActivity extends AppCompatActivity {
 
@@ -73,6 +76,29 @@ public class CarListActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_car_list, menu);
+        MenuItem item = menu.findItem(R.id.overflow);
+        Spinner spinner = (Spinner) item.getActionView();
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sort_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    String selectedSort = (String) parent.getItemAtPosition(position);
+                    sortList(selectedSort);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         return true;
     }
 
@@ -83,9 +109,6 @@ public class CarListActivity extends AppCompatActivity {
                 onBackPressed();
                 return true;
 
-            case R.id.overflow:
-                sortList();
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -102,7 +125,6 @@ public class CarListActivity extends AppCompatActivity {
         }
         toolbar.setNavigationIcon(getDrawable(R.drawable.abc_ic_ab_back_material));
         toolbar.setNavigationOnClickListener(toolbar -> onBackPressed());
-        toolbar.setTitle(getString(R.string.list_toolbar));
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
     }
 
@@ -115,13 +137,32 @@ public class CarListActivity extends AppCompatActivity {
         listController = new CarListController();
         list.setController(listController);
         listController.setHeader(getCarAvailability());
-        listController.setContents(carList);
+        // Default is price ascending
+        sortList("");
     }
 
-    private void sortList() {
-        Timber.e("We will sort list ");
+    private void sortList(String sort) {
 
-        carList = ListUtil.sortCarsByDistanceAscending(carList);
+        switch (sort) {
+            case "Company ,Des":
+                carList = ListUtil.sortCarsByCompanyDescending(carList);
+                break;
+            case "Distance ,Des":
+                carList = ListUtil.sortCarsByDistanceDescending(carList);
+                break;
+            case "Price ,Des":
+                carList = ListUtil.sortCarsByPriceDescending(carList);
+                break;
+            case "Company ,Asc":
+                carList = ListUtil.sortCarsByCompanyAscending(carList);
+                break;
+            case "Distance ,Asc":
+                carList = ListUtil.sortCarsByDistanceAscending(carList);
+                break;
+            default:
+                carList = ListUtil.sortCarsByPriceAscending(carList);
+                break;
+        }
         listController.setContents(carList);
     }
     // endregion

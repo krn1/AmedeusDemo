@@ -4,8 +4,9 @@
 
     <item
         android:id="@+id/overflow"
-        android:title="@string/over_flow_title"
+        app:actionViewClass="android.widget.Spinner"
         android:icon="@drawable/icon_overflow_vertical_light"
-        app:showAsAction="always"/>
+        app:showAsAction="always"
+        android:title="" />
 
 </menu>

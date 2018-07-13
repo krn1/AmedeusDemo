@@ -10,5 +10,16 @@
     <string name="pickup_date">Pickup date</string>
     <string name="dropoff_date">Dropoff date</string>
     <string name="list_toolbar">From your Location</string>
-    <string name="over_flow_title">Sort</string>
+    <string name="over_flow_title">Sort by</string>
+
+    <string-array name="sort_array">
+        <item>Sort by </item>
+        <item>Company ,Asc</item>
+        <item>Distance ,Asc</item>
+        <item>Price ,Asc</item>
+        <item>Company ,Des</item>
+        <item>Distance ,Des</item>
+        <item>Price ,Des</item>
+    </string-array>
+
 </resources>
