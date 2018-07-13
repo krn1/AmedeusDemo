@@ -165,6 +165,10 @@ public class Car implements Parcelable {
         return "Distance : " + distanceString + " m";
     }
 
+    public float getCarDistance() {
+        return distance;
+    }
+
     public void setDistance(float userLatitude, float userLongitude) {
         distance = (float) DistanceUtil.distance(userLatitude, userLongitude,
                 location.getLatitude(), location.getLongitude());

@@ -19,6 +19,7 @@ import butterknife.ButterKnife;
 import raghu.co.R;
 import raghu.co.repository.model.Car;
 import raghu.co.repository.model.Location;
+import raghu.co.util.ListUtil;
 import timber.log.Timber;
 
 public class CarListActivity extends AppCompatActivity {
@@ -78,7 +79,6 @@ public class CarListActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 onBackPressed();
                 return true;
@@ -119,8 +119,10 @@ public class CarListActivity extends AppCompatActivity {
     }
 
     private void sortList() {
-        Timber.e("We will sor list ");
+        Timber.e("We will sort list ");
 
+        carList = ListUtil.sortCarsByDistanceAscending(carList);
+        listController.setContents(carList);
     }
     // endregion
 }
