@@ -82,29 +82,6 @@
             app:layout_constraintTop_toBottomOf="@id/car"
             tools:text="1" />
 
-        <TextView
-            android:id="@+id/distance"
-            style="@style/List.Text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_padding"
-            android:layout_marginStart="@dimen/main_margin"
-            android:layout_marginTop="@dimen/default_padding"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/provider"
-            tools:text="1" />
-
-        <TextView
-            android:id="@+id/price"
-            style="@style/List.Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/main_margin"
-            app:layout_constraintBaseline_toBaselineOf="@id/distance"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="1" />
 
         <TextView
             android:id="@+id/fuel"
@@ -116,7 +93,7 @@
             android:drawableStart="@drawable/ic_fuel"
             android:hint="@string/pickup_date"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/distance" />
+            app:layout_constraintTop_toBottomOf="@id/provider" />
 
         <TextView
             android:id="@+id/transmission"
@@ -141,6 +118,28 @@
             android:hint="@string/dropoff_date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/transmission" />
+
+        <TextView
+        android:id="@+id/distance"
+        style="@style/Details.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:layout_marginStart="@dimen/main_margin"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ac"
+        tools:text="1" />
+
+        <TextView
+        android:id="@+id/price"
+        style="@style/Details.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/main_margin"
+        app:layout_constraintBaseline_toBaselineOf="@id/distance"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="1" />
 
     </android.support.constraint.ConstraintLayout>
 
