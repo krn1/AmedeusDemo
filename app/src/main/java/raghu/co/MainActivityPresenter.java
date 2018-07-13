@@ -1,5 +1,7 @@
 package raghu.co;
 
+import android.support.annotation.VisibleForTesting;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,9 @@ class MainActivityPresenter implements MainActivityContract.Presenter {
     private RestApi apiService;
     private String amadeusApiKey;
     private Location userLocation;
-    private ArrayList<Car> carList;
+
+    @VisibleForTesting
+    ArrayList<Car> carList;
 
     @Inject
     MainActivityPresenter(MainActivityContract.View view,
